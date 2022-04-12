@@ -109,4 +109,18 @@ router.get('/allMobile',function (req,res) {
   })
 });
 
+router.post('/delete', async function (req, res) {
+  var tenAnh3 = req.body.tenAnh;
+  console.log(tenAnh3);
+  const filter = {tenAnh: tenAnh3};
+  const checkTT = await Student.findOne(filter);
+  console.log(checkTT);
+  let xoa = await Student.deleteOne({_id: checkTT._id});
+  if (!xoa) {
+    return console.log("Error");
+  }
+  console.log("Success");
+  return res.render('xoa', {title: 'Xóa', message: "Xóa thành công !!"})
+})
+
 module.exports = router;

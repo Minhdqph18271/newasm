@@ -19,6 +19,11 @@ router.get('/sua',function (req,res) {
   console.log('Sua')
   res.render('sua',{title : 'Trang sửa', message:''});
 })
+
+router.get('/xoa',function (req,res) {
+  console.log('Xoa')
+  res.render('xoa',{title : 'Trang xóa', message:''});
+})
 // router.get('/getall',function (req,res) {
 //   console.log('Xem')
 //   Student.find({},function (err,data){
@@ -109,7 +114,7 @@ router.get('/allMobile',function (req,res) {
   })
 });
 
-router.post('/delete', async function (req, res) {
+router.post('/uploadsss', async function (req, res) {
   var tenAnh3 = req.body.tenAnh;
   console.log(tenAnh3);
   const filter = {tenAnh: tenAnh3};
